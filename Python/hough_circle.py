@@ -8,8 +8,8 @@ Created on Fri Jun  1 16:56:18 2018
 from __future__ import division
 import cv2
 import numpy as np
-import time
-original_img_path = "C:/Users/danie/Desktop/Sample_Input.jpg"
+
+original_img_path = "C:/Users/danie/Desktop/cerc.png"
 original_image = cv2.imread(original_img_path,0)
 #gray_image = cv2.imread('Sample_Input.jpg',0)
 cv2.imshow('Original Image',original_image)
@@ -67,7 +67,7 @@ edges = np.where(edged_image==255)
 for i in range(0,len(edges[0])):
     x=edges[0][i]
     y=edges[1][i]
-    for radius in range(20,55):
+    for radius in range(0,55):
         fill_acc_array(x,y,radius)
             
 
@@ -82,7 +82,7 @@ while(i<height-30):
         c = max_pt[2]
         b=b+j
         a=a+i
-        if(filter3D.max()>90):
+        if(filter3D.max()>45):
             cv2.circle(output,(b,a),c,(0,255,0),2)
         j=j+30
         filter3D[:,:,:]=1
